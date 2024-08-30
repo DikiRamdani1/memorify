@@ -47,6 +47,8 @@ const Page = ({ params }) => {
     }
 
     const handleSubmit = (e) => {
+        console.log(inputFoto)
+        console.log("a")
         if (e.key == "Enter" || e.type == "click") {
             if (inputFoto !== null && inputName !== "") {
                 setLoadingEdit(true)
@@ -67,7 +69,6 @@ const Page = ({ params }) => {
                 setFoto(foto)
                 setLike(like)
                 setUser(user)
-                console.log(like)
                 setInputName(user.data.name)
                 setLoading(false)
             } catch (error) {
@@ -110,11 +111,11 @@ const Page = ({ params }) => {
                     <IoMdCloseCircleOutline onClick={() => setHideEdit(true)} className="text-3xl absolute top-2 right-3 cursor-pointer" />
                     <h1 className={`${jetBrains} text-3xl text-center`}>Edit Profil</h1>
                     <div className="w-full mt-5 flex justify-center">
-                        <label className="w-3/5 h-40 flex flex-col items-center justify-center bg-gray-200 rounded-3xl cursor-pointer" htmlFor="image">
+                        <label className="w-3/5 h-40 flex flex-col items-center justify-center bg-gray-200 rounded-3xl cursor-pointer" htmlFor="imageProfile">
                             <RiImageAddFill className={`text-7xl ${inputFoto !== null ? 'text-green-500' : 'text-black'}`} />
                             <h1 className="text-black text-opacity-70">Pilih Foto</h1>
                         </label>
-                        <input onChange={(e) => setInputFoto(e.target.files[0])} className="hidden" id="image" type="file" accept=".png, .jpg, .jpeg" />
+                        <input onChange={(e) => setInputFoto(e.target.files[0])} className="hidden" id="imageProfile" type="file" accept=".png, .jpg, .jpeg" />
                     </div>
                     <div className="w-full mt-4 flex justify-center">
                         <div className="w-3/4">

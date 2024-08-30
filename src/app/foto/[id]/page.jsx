@@ -125,14 +125,18 @@ const Page = ({ params }) => {
     }
 
     const handleSubmitLike = () => {
-        if (likeStatus) {
-            if (like.status = 200) {
-                handleUnLike()
-                setLikeStatus(false)
+        const statusLogin = cookies.get("statusLogin")
+
+        if (statusLogin == "true") {
+            if (likeStatus) {
+                if (like.status = 200) {
+                    handleUnLike()
+                    setLikeStatus(false)
+                }
+            } else {
+                handleLike()
+                setLikeStatus(true)
             }
-        } else {
-            handleLike()
-            setLikeStatus(true)
         }
     }
 
@@ -276,8 +280,6 @@ const Page = ({ params }) => {
                                                         <div className="ml-10">
                                                             <p className="text-sm opacity-90">{data.komentar}</p>
                                                             <div className="w-40 mt-2 flex justify-between text-xs opacity-50">
-                                                                <h6>balas</h6>
-                                                                <h6>balasan</h6>
                                                                 <h6>{timeAgo(data.createAt)}</h6>
                                                             </div>
                                                         </div>
