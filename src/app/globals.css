@@ -1,33 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  position: sticky;
+  top: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.hideScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+.hideScrollBar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+
+.clipth {
+  clip-path: polygon(32% 27%, 48% 27%, 48% 18%, 58% 29%, 70% 80%, 94% 80%, 100% 100%, 0 100%, 0 0, 20% 0);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 0 white;
+}
+
+
+.animateContentScreen1 {
+  animation: animateContentScreen1 1.4s linear;
+  -webkit-animation: animateContentScreen1 1.4s linear;
+}
+
+@keyframes animateContentScreen1 {
+  0%{
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}100%{
+  transform: translate(0);
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -ms-transform: translate(0);
+  -o-transform: translate(0);
+}
+}
+
+.animateTextScreen1 {
+  animation: animateTextScreen1 .9s linear;
+  -webkit-animation: animateTextScreen1 .9s linear;
+}
+
+@keyframes animateTextScreen1 {
+  0% {
+    opacity: 0;
+}100% {
+  opacity: 10;
+}
+}
+
+.imageContent {
+  animation: imageContent 1.5s linear;
+  -webkit-animation: imageContent 1.5s linear;
+}
+
+@keyframes imageContent {
+  0%{
+    opacity: 0;
+}100%{
+  opacity: 1;
+}
 }
